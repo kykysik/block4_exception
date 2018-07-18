@@ -2,53 +2,60 @@ package regEx.Controller;
 
 import regEx.Model.Model;
 import regEx.View.View;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
+
+import static regEx.View.RegExContainer.*;
+import static regEx.View.TextConstant.INPUT_LANGUAGE_DATA;
 
 /**
  * Main Controller.
  */
 public class Controller {
 
-     private Model model;
      private View view;
-     private ControllerEng controllerEng ;
-     private ControllerRu controllerRu;
-     
-     public Controller(Model model, View view) {
-        this.model = model;
+     private UtilityController controller;
+     public String input;
+
+
+
+    public Controller(Model model, View view) {
         this.view = view;
-        controllerEng = new ControllerEng(model, view);
-        controllerRu = new ControllerRu(model, view);
+        controller = new UtilityController(model, view);
      }
 
-     public void proc() {
+    /**
+     * @throws UnsupportedEncodingException
+     */
+     public void proc() throws UnsupportedEncodingException {
         Scanner sc = new Scanner(System.in);
-        view.message(View.Choose_Language);
+         view.printStringInput(INPUT_LANGUAGE_DATA);
         changeLanguage(sc);
-
      }
+
 
     /**
      * This method change language after user input.
      * @param sc
+     * @throws UnsupportedEncodingException
      */
-     private void changeLanguage(Scanner sc) {
-
-        String input;
-        while (true) {
+     private void changeLanguage(Scanner sc) throws UnsupportedEncodingException {
+         while (true) {
             input = sc.next();
 
-            if (input.equals(View.RUS)) {
-                controllerRu.checkInputData(sc);
+            if (input.equals(View.ENG)) {
+                view.res(input);
+                controller.checkInputData(sc, REGEX_NAME_ENG, REGEX_FIRST_LETTER_ENG);
                 break;
-            } else if (input.equals(View.ENG)) {
-                controllerEng.checkInputData(sc);
+            } else if (input.equals(View.RUS)) {
+                view.res(input);
+                controller.checkInputData(sc, REGEX_NAME_RUS, REGEX_FIRST_LETTER_RUS);
                 break;
             } else {
-                view.message(View.WRONG);
+                view.printWrongStringInput();
                 continue;
             }
         }
      }
-
 }

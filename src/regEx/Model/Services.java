@@ -1,31 +1,31 @@
 package regEx.Model;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Service for ENG language
  */
-public class ServicesENG {
+public class Services {
 
     private Model model;
-    private Pattern pattern = Pattern.compile("^[a-zA-Z-]+$");
-    private Pattern pattern1 = Pattern.compile("[a-zA-Z]");
+    private Pattern pattern;
+    private Pattern pattern1;
     private static Matcher firstLetter ;
     public String first ;
 
-    public ServicesENG(Model model){
+    public Services(Model model, String regName, String regLastLetter){
         this.model = model;
+        pattern = Pattern.compile(regName);
+        pattern1 = Pattern.compile(regLastLetter);
     }
 
     /**
      * verifies the SecondName for correctness
-     * @param sc
-     * @return
+     * @param res
+     * @return true, if regEx is correct
      */
-    public boolean checkSecondName(Scanner sc) {
-        String res = sc.next();
+    public boolean checkSecondName(String res) {
         Matcher regEx = pattern.matcher(res);
 
         if(regEx.matches()) {
@@ -37,11 +37,10 @@ public class ServicesENG {
 
     /**
      * verifies the FirstName for correctness
-     * @param sc
-     * @return
+     * @param res
+     * @return true, if regEx is correct
      */
-    public boolean checkFirstName(Scanner sc) {
-        String res = sc.next();
+    public boolean checkFirstName(String res) {
         Matcher regEx = pattern.matcher(res);
         if(regEx.matches()) {
             model.setFirstName(res);
@@ -56,11 +55,10 @@ public class ServicesENG {
 
     /**
      * verifies the MiddleName for correctness
-     * @param sc
-     * @return
+     * @param res
+     * @return true, if regEx is correct
      */
-    public boolean checkMiddleName(Scanner sc) {
-        String res = sc.next();
+    public boolean checkMiddleName(String res) {
         Matcher regEx = pattern.matcher(res);
 
         if(regEx.matches()) {
