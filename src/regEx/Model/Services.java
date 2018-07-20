@@ -1,5 +1,7 @@
 package regEx.Model;
 
+import regEx.Controller.LoginException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,6 +44,7 @@ public class Services {
      */
     public boolean checkFirstName(String res) {
         Matcher regEx = pattern.matcher(res);
+        model.setList(res);
         if(regEx.matches()) {
             model.setFirstName(res);
             firstLetter = pattern1.matcher(res);

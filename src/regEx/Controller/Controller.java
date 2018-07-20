@@ -30,7 +30,7 @@ public class Controller {
      */
      public void proc() throws UnsupportedEncodingException {
         Scanner sc = new Scanner(System.in);
-         view.printStringInput(INPUT_LANGUAGE_DATA);
+        view.printStringInput(INPUT_LANGUAGE_DATA);
         changeLanguage(sc);
      }
 
@@ -45,11 +45,11 @@ public class Controller {
             input = sc.next();
 
             if (input.equals(View.ENG)) {
-                view.res(input);
+                view.init(input);
                 controller.checkInputData(sc, REGEX_NAME_ENG, REGEX_FIRST_LETTER_ENG);
                 break;
             } else if (input.equals(View.RUS)) {
-                view.res(input);
+                view.init(input);
                 controller.checkInputData(sc, REGEX_NAME_RUS, REGEX_FIRST_LETTER_RUS);
                 break;
             } else {

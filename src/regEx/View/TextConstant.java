@@ -11,4 +11,5 @@ public interface TextConstant {
     String MIDDLE_NAME = "input.middle.name.data";
     String SPACE = "output.space";
     String DOT = "output.dot";
+    String INFO = "output.info";
 }

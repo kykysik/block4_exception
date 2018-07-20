@@ -24,7 +24,7 @@ public class View {
      * initialization of LOCALE
      * @param locale
      */
-    public void res(String locale) {
+    public void init(String locale) {
         bundle = ResourceBundle.getBundle(
                 MESSAGES_BUNDLE_NAME,
                 new Locale(locale));

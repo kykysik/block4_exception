@@ -61,7 +61,13 @@ import static regEx.View.TextConstant.*;
         view.printStringInput(FIRST_NAME);
 
         String res = sc.next();
-
+        if(model.getList().contains(res)){
+            try {
+                throw new LoginException(view);
+            } catch (LoginException e) {
+                isCorrectFirstName(sc);
+            }
+        }
         if (services.checkFirstName(res)) {
 
             return false;

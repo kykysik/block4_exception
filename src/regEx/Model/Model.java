@@ -1,10 +1,28 @@
 package regEx.Model;
 
+import java.util.ArrayList;
+
 public class Model {
 
     private String secondName; // фамилия
     private String firstName;
     private String middleName;
+    private ArrayList<String> list = new ArrayList<>();
+
+    public Model() {
+        list.add("Bogdan");
+        list.add("Valera");
+        list.add("Богдан");
+        list.add("Валера");
+    }
+
+    public ArrayList getList() {
+        return list;
+    }
+
+    public void setList(String list) {
+        this.list.add(list);
+    }
 
     /**
      * @return secondName.

@@ -12,18 +12,17 @@ import java.io.UnsupportedEncodingException;
  * Main class.
  */
 public class Main {
-
     /**
      * Here start point of the program.
      * @param args
      */
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-    Model model = new Model();
-    View view = new View();
-    Controller controller = new Controller(model, view);
+        Model model = new Model();
+        View view = new View();
+        Controller controller = new Controller(model, view);
 
-    controller.proc();
+        controller.proc();
 
     }
 }
